@@ -20,7 +20,6 @@ public class CommandHandler implements CommandExecutor {
 		if(cmd.equalsIgnoreCase("something")) {
 			SomethingCommand command = new SomethingCommand(plugin);
 			return command.execute(cs, args);
-				
 		}
 		
 		return false;
