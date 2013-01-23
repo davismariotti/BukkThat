@@ -10,7 +10,7 @@ public class Main extends JavaPlugin {
 
 	String[] commands =
 			{
-			"something", "Teleport", "TeleportAccept"
+			"something", "tp", "tpaccept", "tpdeny"
 			};
 	
 	@Override
