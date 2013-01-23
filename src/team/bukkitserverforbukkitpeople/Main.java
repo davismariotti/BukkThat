@@ -9,13 +9,19 @@ import team.bukkitserverforbukkitpeople.listeners.PlayerListener;
 
 public class Main extends JavaPlugin {
 
+	String[] commands =
+			{
+			"something"
+			};
 	
 	@Override
 	public void onEnable() {
 		getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
 		getServer().getPluginManager().registerEvents(new BlockListener(this), this);
 		getServer().getPluginManager().registerEvents(new OtherListener(this), this);
-		getCommand("something").setExecutor(new CommandHandler(this));
+		for(String command:commands) {
+			getCommand(command).setExecutor(new CommandHandler(this));
+		}
 	}
 	
 }

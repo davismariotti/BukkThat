@@ -9,9 +9,8 @@ There are example commands up so you can learn how we will do it. Look below for
 
 To add a command "something":
 
-Add the command to the onEnable in the Main file:  
-````getCommand().setExecutor(new CommandHandler(this));````  
-Add the command to the CommandHandler by doing this:
+Add the command to the commands list in the Main file.
+Then add the command to the CommandHandler by doing this:
 
 	if(cmd.equalsIgnoreCase("something")) {
 		SomethingCommand command = new SomethingCommand(plugin);
