@@ -43,6 +43,7 @@ Then add the new class, something like this:
 
 	}
 	
+Add events like normal, in the respective class, for example, PlayerJoinEvent goes into the PlayerListener class.
 Now you too can help!
 
 
