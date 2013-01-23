@@ -21,6 +21,7 @@ public class Main extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new BlockListener(this), this);
 		getServer().getPluginManager().registerEvents(new OtherListener(this), this);
         getServer().getPluginManager().registerEvents(new TroListener(this), this);
+
 		for(String command:commands) {
 			getCommand(command).setExecutor(new CommandHandler(this));
 		}

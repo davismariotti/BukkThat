@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93288dd7-3de5-46ee-88d1-2307cffe49b4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BukkitServerForBukkitPeople.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/team/bukkitserverforbukkitpeople/listeners/TroListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/craftbukkit_1_4_6_R0_4_20130105_234906_5.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/team/bukkitserverforbukkitpeople/Main.java" afterPath="$PROJECT_DIR$/src/team/bukkitserverforbukkitpeople/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/team/bukkitserverforbukkitpeople/listeners/TroListener.java" afterPath="$PROJECT_DIR$/src/team/bukkitserverforbukkitpeople/listeners/TroListener.java" />
     </list>
     <ignored path="BukkitServerForBukkitPeople.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="93288dd7-3de5-46ee-88d1-2307cffe49b4" time="1358966201354" ignored="false" />
-    <file path="/TroListener.java" changelist="93288dd7-3de5-46ee-88d1-2307cffe49b4" time="1358967111188" ignored="false" />
+    <file path="/TroListener.java" changelist="93288dd7-3de5-46ee-88d1-2307cffe49b4" time="1358967686760" ignored="false" />
     <file path="/Main.java" changelist="93288dd7-3de5-46ee-88d1-2307cffe49b4" time="1358967048632" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,19 +77,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/team/bukkitserverforbukkitpeople/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="69" selection-start="847" selection-end="847" vertical-scroll-proportion="0.0">
+            <state line="23" column="8" selection-start="862" selection-end="862" vertical-scroll-proportion="0.4792703">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TroListener.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TroListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/team/bukkitserverforbukkitpeople/listeners/TroListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="40" selection-start="252" selection-end="252" vertical-scroll-proportion="0.1973466">
+            <state line="16" column="46" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -389,7 +387,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="1" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -483,13 +481,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/team/bukkitserverforbukkitpeople/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="69" selection-start="847" selection-end="847" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/team/bukkitserverforbukkitpeople/listeners/PlayerListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="13" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
@@ -501,10 +492,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/team/bukkitserverforbukkitpeople/listeners/TroListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="40" selection-start="252" selection-end="252" vertical-scroll-proportion="0.1973466">
+        <state line="16" column="46" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/team/bukkitserverforbukkitpeople/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="8" selection-start="862" selection-end="862" vertical-scroll-proportion="0.4792703">
+          <folding />
         </state>
       </provider>
     </entry>
