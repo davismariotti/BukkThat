@@ -3,7 +3,6 @@ package team.bukkitserverforbukkitpeople.commands;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-
 import team.bukkitserverforbukkitpeople.Main;
 
 public class CommandHandler implements CommandExecutor {
@@ -21,6 +20,15 @@ public class CommandHandler implements CommandExecutor {
 			SomethingCommand command = new SomethingCommand(plugin);
 			return command.execute(cs, args);
 		}
+                else if(cmd.equalsIgnoreCase("Teleport")) {
+                    TeleportCommand command = new TeleportCommand(plugin);
+		    return command.execute(cs, args);
+                    
+                }
+                else if(cmd.equalsIgnoreCase("TeleportAccept")) {
+                    TeleportAcceptCommand command = new TeleportAcceptCommand(plugin);
+		    return command.execute(cs, args);
+                }
 		
 		return false;
 	}

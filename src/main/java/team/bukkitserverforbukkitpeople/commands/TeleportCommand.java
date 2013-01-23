@@ -7,11 +7,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
 import team.bukkitserverforbukkitpeople.Main;
 
-public class Teleport {
+public class TeleportCommand {
     
     Main plugin;
 
-    public Teleport(Main main) {
+    public TeleportCommand(Main main) {
         //Get the instance of the main plugin, for config use or other things.
         this.plugin = main;
     }

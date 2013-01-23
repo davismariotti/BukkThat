@@ -1,7 +1,6 @@
 package team.bukkitserverforbukkitpeople;
 
 import org.bukkit.plugin.java.JavaPlugin;
-
 import team.bukkitserverforbukkitpeople.commands.CommandHandler;
 import team.bukkitserverforbukkitpeople.listeners.BlockListener;
 import team.bukkitserverforbukkitpeople.listeners.OtherListener;
@@ -11,7 +10,7 @@ public class Main extends JavaPlugin {
 
 	String[] commands =
 			{
-			"something"
+			"something", "Teleport", "TeleportAccept"
 			};
 	
 	@Override
