@@ -16,20 +16,11 @@ public class CommandHandler implements CommandExecutor {
 	
 	public boolean onCommand(CommandSender cs, Command cmdObj, String label, String[] args) {
 		String cmd = cmdObj.getName();
-		if(cmd.equalsIgnoreCase("something")) {
-			SomethingCommand command = new SomethingCommand(plugin);
-			return command.execute(cs, args);
-		}
-                else if(cmd.equalsIgnoreCase("Teleport")) {
-                    TeleportCommand command = new TeleportCommand(plugin);
-		    return command.execute(cs, args);
-                    
-                }
-                else if(cmd.equalsIgnoreCase("TeleportAccept")) {
-                    TeleportAcceptCommand command = new TeleportAcceptCommand(plugin);
-		    return command.execute(cs, args);
-                }
-		
+		if(cmd.equalsIgnoreCase("something")) return new SomethingCommand(plugin).execute(cs, args);
+        else if(cmd.equalsIgnoreCase("tp")) return new TPCommand(plugin).execute(cs, args);
+        else if(cmd.equalsIgnoreCase("tpa")) return new TPACommand(plugin).execute(cs, args);
+        else if(cmd.equalsIgnoreCase("tpaccept")) return new TPAcceptCommand(plugin).execute(cs, args);
+        else if(cmd.equalsIgnoreCase("tpdeny")) return new TPDenyCommand(plugin).execute(cs, args);
 		return false;
 	}
 
