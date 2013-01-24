@@ -38,7 +38,7 @@ public class Main extends JavaPlugin {
 	public void addTpOrb() {
 		ItemStack orb = new ItemStack(Material.EYE_OF_ENDER, 2);
 		ItemMeta im = orb.getItemMeta();
-		im.setDisplayName(ChatColor.DARK_PURPLE+"TP Orb");
+		im.setDisplayName(ChatColor.LIGHT_PURPLE+ChatColor.ITALIC+"TP Orb");
 		orb.setItemMeta(im);
 		ShapedRecipe recipe = new ShapedRecipe(orb);
 		recipe.shape("ABA", "CDC", "ABA")
