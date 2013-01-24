@@ -46,6 +46,6 @@ Now you too can help!
 Contributors
 ===========================
 Gomeow - Code lead  
-MrBlueBear3 - Other important person  
+MrBluebear3 - Other important person  
 mncat77 - Converted us to maven  
 evilmidget38 - Didn't really help
