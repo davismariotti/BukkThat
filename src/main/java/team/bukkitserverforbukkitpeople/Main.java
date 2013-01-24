@@ -25,6 +25,7 @@ public class Main extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new BlockListener(this), this);
 		getServer().getPluginManager().registerEvents(new OtherListener(this), this);
 		for(String command:commands) {
+			//TODO: Fix NPE on this line
 			getCommand(command).setExecutor(new CommandHandler(this));
 		}
 		addRecipes();

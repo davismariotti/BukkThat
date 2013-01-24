@@ -5,3 +5,5 @@ version: 1.0
 commands:
   something:
     description: Tells you if you are a player or not
+  tp:
+    description: hi
