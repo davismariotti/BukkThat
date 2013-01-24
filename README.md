@@ -12,10 +12,7 @@ To add a command "something":
 Add the command to the commands list in the Main file.
 Then add the command to the CommandHandler by doing this:
 
-	if(cmd.equalsIgnoreCase("something")) {
-		SomethingCommand command = new SomethingCommand(plugin);
-		return command.execute(cs, args);
-	}
+	if(cmd.equalsIgnoreCase("something")) return new SomethingCommand(plugin).execute(cs, args);
 
 Then add the new class, something like this:
 
