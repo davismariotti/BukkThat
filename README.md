@@ -11,9 +11,9 @@ To add a command "something":
 
 Add the command to the commands list in the Main file.
 Then add the command to the CommandHandler by doing this:
-
-	if(cmd.equalsIgnoreCase("something")) return new SomethingCommand(plugin).execute(cs, args);
-
+```java
+if(cmd.equalsIgnoreCase("something")) return new SomethingCommand(plugin).execute(cs, args);
+```
 Then add the new class, something like this:
 ```java
 public class SomethingCommand {
@@ -41,7 +41,7 @@ public class SomethingCommand {
 ```
 To use the config, use the below code for getting:  
 ```java
-    plugin.pc.set(String key, Object o);  
+plugin.pc.set(String key, Object o);  
 ```
 And to get:  
 ```java
