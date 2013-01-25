@@ -39,10 +39,14 @@ Then add the new class, something like this:
 
 	}
 To use the config, use the below code for getting:  
+```java
     plugin.pc.set(String key, Object o);  
+```
 And to get:  
-    plugin.pc.getString(String key, String def);  
-    plugin.pc.getInt(String key);  
+```java
+plugin.pc.getString(String key, String def);  
+plugin.pc.getInt(String key);  
+```
 Add events like normal, in the respective class, for example, PlayerJoinEvent goes into the PlayerListener class.  
 Now you too can help!
 
