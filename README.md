@@ -39,7 +39,7 @@ public class SomethingCommand {
 
 }
 ```
-To use the config, use the below code for getting:  
+To use the config, use the below code for setting:  
 ```java
 plugin.pc.set(String key, Object o);  
 ```
