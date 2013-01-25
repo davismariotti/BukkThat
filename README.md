@@ -15,29 +15,30 @@ Then add the command to the CommandHandler by doing this:
 	if(cmd.equalsIgnoreCase("something")) return new SomethingCommand(plugin).execute(cs, args);
 
 Then add the new class, something like this:
+```java
+public class SomethingCommand {
+	Main plugin;
 
-	public class SomethingCommand {
-		Main plugin;
-	
-		public SomethingCommand(Main main) {
-			//Get the instance of the main plugin, for config use or other things.
-			this.plugin = main;
-		}
-	
-		public boolean execute(CommandSender cs, String[] args) {
-			//Add implementation here
-			if(cs instanceof Player) {
-				Player p = (Player) cs;
-				p.sendMessage(ChatColor.GREEN+"You are a player!");
-				return true;
-			}
-			else {
-				cs.sendMessage(ChatColor.RED+"You are not a player D:");
-				return true;
-			}
-		}
-
+	public SomethingCommand(Main main) {
+		//Get the instance of the main plugin, for config use or other things.
+		this.plugin = main;
 	}
+
+	public boolean execute(CommandSender cs, String[] args) {
+		//Add implementation here
+		if(cs instanceof Player) {
+		Player p = (Player) cs;
+			p.sendMessage(ChatColor.GREEN+"You are a player!");
+			return true;
+		}
+		else {
+			cs.sendMessage(ChatColor.RED+"You are not a player D:");
+			return true;
+		}
+	}
+
+}
+```
 To use the config, use the below code for getting:  
 ```java
     plugin.pc.set(String key, Object o);  
