@@ -21,6 +21,7 @@ public class CommandHandler implements CommandExecutor {
         else if(cmd.equalsIgnoreCase("tpa")) return new TPACommand(plugin).execute(cs, args);
         else if(cmd.equalsIgnoreCase("tpaccept")) return new TPAcceptCommand(plugin).execute(cs, args);
         else if(cmd.equalsIgnoreCase("tpdeny")) return new TPDenyCommand(plugin).execute(cs, args);
+        else if(cmd.equalsIgnoreCase("pvpopt")) return new PVPOptCommand(plugin).execute(cs, args);
 		return false;
 	}
 

@@ -6,4 +6,6 @@ commands:
   something:
     description: Tells you if you are a player or not
   tp:
-    description: hi
+    description: Basic teleport commands
+  pvpopt:
+    description: Opt in or out of pvp
