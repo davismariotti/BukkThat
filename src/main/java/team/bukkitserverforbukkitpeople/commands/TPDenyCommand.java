@@ -6,10 +6,11 @@ import team.bukkitserverforbukkitpeople.Main;
 
 public class TPDenyCommand {
     Main plugin;
-
-    public TPDenyCommand(Main main) {
-        //Get the instance of the main plugin, for config use or other things.
+    CommandHandler ch;
+    
+    public TPDenyCommand(Main main, CommandHandler commandHandler) {
         this.plugin = main;
+        this.ch = commandHandler;
     }
     
     public boolean execute(CommandSender sender, String[] args) {

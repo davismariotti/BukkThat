@@ -4,8 +4,14 @@ version: 1.0
 
 commands:
   something:
-    description: Tells you if you are a player or not
+    description: Tells you if you are a player or not.
   tp:
-    description: Basic teleport commands
+    description: Basic teleport commands.
+  tpa:
+    description: Asks the target for teleport permission.
+  tpaccept:
+    description: Accepts tp invite.
+  tpdeny:
+    description: Declines tp invite.
   pvpopt:
-    description: Opt in or out of pvp
+    description: Opt in or out of pvp.

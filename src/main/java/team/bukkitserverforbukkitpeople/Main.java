@@ -19,9 +19,11 @@ public class Main extends JavaPlugin {
 	public FileConfiguration playersConfig;
 	public PlayersConfig pc;
 	
+	
+	
 	String[] commands =
 			{
-			"something", "tp", "pvpopt", "tpdeny"
+			"something", "tp", "pvpopt","tpa", "tpaccept", "tpdeny"
 			};
 	
 	@Override

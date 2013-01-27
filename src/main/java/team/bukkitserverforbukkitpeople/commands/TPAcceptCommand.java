@@ -7,7 +7,7 @@ import team.bukkitserverforbukkitpeople.Main;
 public class TPAcceptCommand {
     Main plugin;
 
-    public TPAcceptCommand(Main main) {
+    public TPAcceptCommand(Main main, CommandHandler commandHandler) {
         //Get the instance of the main plugin, for config use or other things.
         this.plugin = main;
     }

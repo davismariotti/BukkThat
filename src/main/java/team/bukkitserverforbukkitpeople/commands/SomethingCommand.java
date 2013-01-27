@@ -9,11 +9,14 @@ import team.bukkitserverforbukkitpeople.Main;
 public class SomethingCommand {
 
 	Main plugin;
+	CommandHandler ch;
 	
-	public SomethingCommand(Main main) {
+	public SomethingCommand(Main main, CommandHandler commandHandler) {
+
 		this.plugin = main;
+		this.ch = commandHandler;
 	}
-	
+
 	public boolean execute(CommandSender cs, String[] args) {
 		//Add implementation here
 		if(cs instanceof Player) {

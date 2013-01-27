@@ -11,10 +11,11 @@ public class PVPOptCommand {
     Main plugin;
     ChatColor GREEN = ChatColor.GREEN;
     ChatColor RED = ChatColor.RED;
+	CommandHandler ch;
 
-    public PVPOptCommand(Main main) {
-        //Get the instance of the main plugin, for config use or other things.
+    public PVPOptCommand(Main main, CommandHandler commandHandler) {
         this.plugin = main;
+        this.ch = commandHandler;
     }
 
     public boolean execute(CommandSender sender, String[] args) {
