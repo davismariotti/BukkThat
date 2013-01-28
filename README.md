@@ -18,10 +18,11 @@ Then add the new class, something like this:
 ```java
 public class SomethingCommand {
 	Main plugin;
-
-	public SomethingCommand(Main main) {
+        CommandHandler ch;
+	public SomethingCommand(Main main, CommandHandler commandHandler) {
 		//Get the instance of the main plugin, for config use or other things.
 		this.plugin = main;
+                this.ch = commandHandler;
 	}
 
 	public boolean execute(CommandSender cs, String[] args) {
@@ -41,12 +42,12 @@ public class SomethingCommand {
 ```
 To use the player's config, use the below code for setting:  
 ```java
-plugin.pc.set(String key, Object o);  
+plugin.pc.getPlayers().set(String key, Object o);  
 ```
 And to get:  
 ```java
-plugin.pc.getString(String key, String def);  
-plugin.pc.getInt(String key);  
+plugin.pc.getPlayers().getString(String key, String def);  
+plugin.pc.getPlayers().getInt(String key);  
 ```
 Add events like normal, in the respective class, for example, PlayerJoinEvent goes into the PlayerListener class.  
 Now you too can help!
@@ -54,7 +55,7 @@ Now you too can help!
 
 Contributors
 ===========================
-Gomeow - Code lead  
+gomeow - Code lead  
 MrBluebear3 - Other important person  
 mncat77 - Converted us to maven  
 evilmidget38 - Didn't really help
