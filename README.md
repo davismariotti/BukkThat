@@ -18,11 +18,11 @@ Then add the new class, something like this:
 ```java
 public class SomethingCommand {
 	Main plugin;
-        CommandHandler ch;
+    CommandHandler ch;
 	public SomethingCommand(Main main, CommandHandler commandHandler) {
 		//Get the instance of the main plugin, for config use or other things.
 		this.plugin = main;
-                this.ch = commandHandler;
+        this.ch = commandHandler;
 	}
 
 	public boolean execute(CommandSender cs, String[] args) {
