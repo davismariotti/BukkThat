@@ -33,8 +33,8 @@ public class TPACommand {
     					ch.tpaRef.put(target.getName(), p.getName());
     					ch.tpaTimes.put(target.getName(), System.currentTimeMillis());
     					p.sendMessage(GREEN + "Request sent!");
-    					Integer timeout = plugin.getConfig().getInt("tp-timeout");
-    					target.sendMessage(ChatColor.GOLD + p.getName() + ChatColor.BLUE + " has sent a tp request to tp to you. You have " + timeout.toString() + " until this request times out.");
+    					Integer timeout = /*plugin.getConfig().getInt("tp-timeout", 30)*/30;
+    					target.sendMessage(ChatColor.GOLD + p.getName() + ChatColor.BLUE + " has sent a tp request to tp to you. You have " + timeout.toString() + " seconds until this request times out.");
     					return true;
     				
     				default:

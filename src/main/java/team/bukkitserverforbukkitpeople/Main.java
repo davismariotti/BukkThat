@@ -28,6 +28,7 @@ public class Main extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
+		//saveDefaultConfig();
 		pc = new PlayersConfig(this);
 		pc.reloadPlayers();
 		pc.savePlayers();
