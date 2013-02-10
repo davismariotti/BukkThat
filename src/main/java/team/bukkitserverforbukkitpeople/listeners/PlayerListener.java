@@ -27,7 +27,7 @@ public class PlayerListener implements Listener {
 	@EventHandler
 	public void onChat(AsyncPlayerChatEvent event) {
             //Make messages colorable
-            event.setMessage(ChatColor.translateAlternateColorCodes("&".charAt(0), event.getMessage()));
+            event.setMessage(ChatColor.translateAlternateColorCodes('&'), event.getMessage()));
 	} 
 	
 	@EventHandler
