@@ -11,16 +11,16 @@ import team.bukkitserverforbukkitpeople.Main;
 
 public class PlayersConfig {
 
-	public  Main plugin;
-	public  File playersFile;
-	public  FileConfiguration playersConfig;
+	public Main plugin;
+	public File playersFile;
+	public FileConfiguration playersConfig;
 	
 	public PlayersConfig(Main plugin) {
 		this.plugin = plugin;
 	}
 	
 	
-	public  void reloadPlayers() {
+	public void reloadPlayers() {
 	    if (playersFile == null) {
 	    	playersFile = new File(plugin.getDataFolder(), "players.yml");
 	    }
@@ -28,15 +28,15 @@ public class PlayersConfig {
 	}
 
 	
-	public  FileConfiguration getPlayers() {
+	public FileConfiguration getPlayers() {
 	    if (playersConfig == null) {
 	        this.reloadPlayers();
 	    }
 	    return playersConfig;
 	}
 	
-	public  void savePlayers() {
-	    if (playersConfig == null || playersConfig == null) {
+	public void savePlayers() {
+	    if (playersConfig == null || playersFile == null) {
 	    return;
 	    }
 	    try {
