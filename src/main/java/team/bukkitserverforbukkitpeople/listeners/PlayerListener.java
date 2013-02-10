@@ -21,7 +21,7 @@ public class PlayerListener implements Listener {
 
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event) {
-            event.getPlayer().sendMessage(plugin.getConfig().getString("messages.join", "Welcome <player>!").replaceAll("&", "§").replaceAll("<player>", event.getPlayer().getName()));
+            event.getPlayer().sendMessage(plugin.getConfig().getString("messages.join", "Welcome <player>!").replaceAll("&", "ï¿½").replaceAll("<player>", event.getPlayer().getName()));
 	}
 	
 	@EventHandler
@@ -39,10 +39,12 @@ public class PlayerListener implements Listener {
 			Player damager = (Player) damagerEnt;
 			if(plugin.pc.getPlayers().getBoolean(damager.getName()+".pvp-opt", false)) {
 				damager.sendMessage(ChatColor.RED+"You are opted out of pvp. Use /pvpopt <in/out> to change this status.");
+				event.setCancelled(true);
 				return;
 			}
 			if(plugin.pc.getPlayers().getBoolean(p.getName()+".pvp-opt", false)) {
 				damager.sendMessage(ChatColor.RED+"That player has pvp disabled!");
+				event.setCancelled(true);
 				return;
 			}
 		}
