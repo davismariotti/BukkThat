@@ -2,6 +2,9 @@ package team.bukkitserverforbukkitpeople.commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.BlockCommandSender;
+import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.command.RemoteConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 import team.bukkitserverforbukkitpeople.Main;
@@ -24,8 +27,19 @@ public class SomethingCommand {
 			p.sendMessage(ChatColor.GREEN+"You are a player!");
 			return true;
 		}
-		else {
-			cs.sendMessage(ChatColor.RED+"You are not a player D:");
+		else if(sender instanceof ConsoleCommandSender){
+			cs.sendMessage(ChatColor.GREEN+"You are a console!");
+			return true;
+		}
+		else if(sender instanceof BlockCommandSender){
+			cs.sendMessage(ChatColor.GREEN+"You are a block!");
+			return true;
+		}else if(sender instanceof RemoteConsoleCommandSender){
+			cs.sendMessage(ChatColor.GREEN+"You are a remote console!");
+			return true;
+		}
+		else{
+			cs.sendMessage(ChatColor.RED+"What are you?");
 			return true;
 		}
 	}
