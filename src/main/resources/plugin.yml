@@ -1,5 +1,4 @@
-main: team.bukkitserverforbukkitpeople.Main
-name: CommunityPlugin
+main: team.bukkthat.Main
 version: 1.0
 
 commands:
