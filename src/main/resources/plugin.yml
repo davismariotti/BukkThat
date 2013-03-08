@@ -1,4 +1,5 @@
 main: team.bukkthat.Main
+name: CommunityPlugin
 version: 1.0
 
 commands:
