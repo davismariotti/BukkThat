@@ -11,40 +11,36 @@ import team.bukkthat.Main;
 
 public class PlayersConfig {
 
-    private Main plugin;
-    private File playersFile;
+    private final Main plugin;
+    private final File playersFile;
     private FileConfiguration playersConfig;
 
     public PlayersConfig(Main plugin) {
         this.plugin = plugin;
+        this.playersFile = new File(plugin.getDataFolder(), "players.yml");
+        this.reloadPlayers();
     }
-
-
-    public void reloadPlayers() {
-        if (playersFile == null) {
-            playersFile = new File(plugin.getDataFolder(), "players.yml");
-        }
-        playersConfig = YamlConfiguration.loadConfiguration(playersFile);
-    }
-
 
     public FileConfiguration getPlayers() {
-        if (playersConfig == null) {
+        if (this.playersConfig == null) {
             this.reloadPlayers();
         }
-        return playersConfig;
+        return this.playersConfig;
+    }
+
+    public void reloadPlayers() {
+        this.playersConfig = YamlConfiguration.loadConfiguration(this.playersFile);
     }
 
     public void savePlayers() {
-        if (playersConfig == null || playersFile == null) {
+        if (this.playersConfig == null) {
             return;
         }
         try {
-            getPlayers().save(playersFile);
-        } catch (IOException ex) {
-            plugin.getLogger().log(Level.SEVERE, "Could not save config to " + playersConfig, ex);
+            this.getPlayers().save(this.playersFile);
+        } catch (final IOException ex) {
+            this.plugin.getLogger().log(Level.SEVERE, "Could not save config to " + this.playersConfig, ex);
         }
     }
-
 
 }

@@ -7,11 +7,25 @@ commands:
     description: Tells you if you are a player or not.
   tp:
     description: Basic teleport commands.
+    permission: server.tp
+    permission-message: You do not have permission to do that!
   tpa:
     description: Asks the target for teleport permission.
+    permission: server.tpa
+    permission-message: You do not have permission to do that!
   tpaccept:
     description: Accepts tp invite.
+    permission: server.tpaccept
+    permission-message: You do not have permission to do that!
   tpdeny:
     description: Declines tp invite.
   pvpopt:
     description: Opt in or out of pvp.
+
+permissions:
+  server.tpaccept:
+    default: op
+  server.tpa:
+    default: op
+  server.tp:
+    default: op
