@@ -2,68 +2,62 @@ package team.bukkthat.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import team.bukkthat.Main;
 
-public class TPAcceptCommand {
+public class TPAcceptCommand implements CommandExecutor {
 
-    private Main plugin;
-    private CommandHandler ch;
-    private ChatColor RED = ChatColor.RED;
-    private ChatColor GREEN = ChatColor.GREEN;
+    private final Main plugin;
+    private final ChatColor RED = ChatColor.RED;
+    private final ChatColor GREEN = ChatColor.GREEN;
 
-    public TPAcceptCommand(Main main, CommandHandler commandHandler) {
+    public TPAcceptCommand(Main main) {
         this.plugin = main;
-        this.ch = commandHandler;
     }
-    
-    public boolean execute(CommandSender sender, String[] args) {
+
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         sender.sendMessage("test");
-        for(String name : ch.getTpaRef().keySet()) {
+        for (final String name : this.plugin.getTpaRef().keySet()) {
             sender.sendMessage(name);
         }
-        if(sender instanceof Player) {
-            Player p = (Player) sender;
-            if(p.hasPermission("server.tpaccept")) {
-                if(args.length != 0) {
-                    p.sendMessage(RED + "Wrong number of arguments!");
-                    p.sendMessage(RED + "Usage: /<command>");
-                    return true;
-                }
-                if(ch.getTpaRef().containsKey(p.getName())) {
-                    Player target = Bukkit.getPlayer(ch.getTpaRef().get(p.getName()));
-                    if(target == null) {
-                        p.sendMessage(RED + "Sorry, that player has since logged out.");
-                        ch.getTpaRef().remove(p.getName());
-                        return true;
-                    }
-                    long time = System.currentTimeMillis();
-                    Integer timeout = /*plugin.getConfig().getInt("tp-timeout", 30)*/30;
-                    long oldTime = ch.getTpaTimes().get(p.getName());
-                    if(time - oldTime < new Long(timeout * 1000)) {
-                        p.sendMessage(RED + "Request timed out!");
-                        return true;
-                    }
-                    p.sendMessage(GREEN + "Teleporting!");
-                    p.teleport(target);
-                    ch.getTpaRef().remove(p.getName());
-                    ch.getTpaTimes().remove(p.getName());
-                    return true;
-                } else {
-                    p.sendMessage(RED + "You have no pending requests.");
-                    return true;
-                }
-            }
-            else {
-                p.sendMessage(RED + "You do not have permission to do that!");
+        if (sender instanceof Player) {
+            final Player p = (Player) sender;
+            if (args.length != 0) {
+                p.sendMessage(this.RED + "Wrong number of arguments!");
+                p.sendMessage(this.RED + "Usage: /<command>");
                 return true;
             }
-        }
-        else {
-            sender.sendMessage(RED + "You need to be a player to do that!");
+            if (this.plugin.getTpaRef().containsKey(p.getName())) {
+                final Player target = Bukkit.getPlayer(this.plugin.getTpaRef().get(p.getName()));
+                if (target == null) {
+                    p.sendMessage(this.RED + "Sorry, that player has since logged out.");
+                    this.plugin.getTpaRef().remove(p.getName());
+                    return true;
+                }
+                final long time = System.currentTimeMillis();
+                final Integer timeout = /*plugin.getConfig().getInt("tp-timeout", 30)*/30;
+                final long oldTime = this.plugin.getTpaTimes().get(p.getName());
+                if ((time - oldTime) < new Long(timeout * 1000)) {
+                    p.sendMessage(this.RED + "Request timed out!");
+                    return true;
+                }
+                p.sendMessage(this.GREEN + "Teleporting!");
+                p.teleport(target);
+                this.plugin.getTpaRef().remove(p.getName());
+                this.plugin.getTpaTimes().remove(p.getName());
+                return true;
+            } else {
+                p.sendMessage(this.RED + "You have no pending requests.");
+                return true;
+            }
+        } else {
+            sender.sendMessage(this.RED + "You need to be a player to do that!");
             return true;
         }
     }
+
 }
