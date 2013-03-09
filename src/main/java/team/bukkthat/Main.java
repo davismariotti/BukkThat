@@ -1,14 +1,21 @@
 package team.bukkthat;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import team.bukkthat.commands.CommandHandler;
+import team.bukkthat.commands.PVPOptCommand;
+import team.bukkthat.commands.SomethingCommand;
+import team.bukkthat.commands.TPACommand;
+import team.bukkthat.commands.TPAcceptCommand;
+import team.bukkthat.commands.TPCommand;
+import team.bukkthat.commands.TPDenyCommand;
 import team.bukkthat.listeners.BlockListener;
 import team.bukkthat.listeners.OtherListener;
 import team.bukkthat.listeners.PlayerListener;
@@ -16,60 +23,48 @@ import team.bukkthat.util.PlayersConfig;
 
 public class Main extends JavaPlugin {
 
-    private FileConfiguration playersConfig;
-    private PlayersConfig pc;
+    private PlayersConfig playersConfig;
 
-    private static final String[] COMMANDS =
-    {
-        "something",
-        "tp",
-        "pvpopt",
-        "tpa",
-        "tpaccept",
-        "tpdeny",
-    };
+    private final HashMap<String, String> tpaRef = new HashMap<String, String>();
+    private final HashMap<String, Long> tpaTimes = new HashMap<String, Long>();
+
+    public PlayersConfig getPlayersConfig() {
+        return this.playersConfig;
+    }
+
+    public Map<String, String> getTpaRef() {
+        return this.tpaRef;
+    }
+
+    public Map<String, Long> getTpaTimes() {
+        return this.tpaTimes;
+    }
 
     @Override
     public void onEnable() {
         //saveDefaultConfig();
-        pc = new PlayersConfig(this);
-        pc.reloadPlayers();
-        pc.savePlayers();
-        playersConfig = pc.getPlayers();
+        this.playersConfig = new PlayersConfig(this);
 
-        getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
-        getServer().getPluginManager().registerEvents(new BlockListener(this), this);
-        getServer().getPluginManager().registerEvents(new OtherListener(this), this);
+        this.getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
+        this.getServer().getPluginManager().registerEvents(new BlockListener(), this);
+        this.getServer().getPluginManager().registerEvents(new OtherListener(), this);
 
-        for(String command : COMMANDS) {
-            //TODO: Fix NPE on this line
-            getCommand(command).setExecutor(new CommandHandler(this));
-        }
-        addRecipes();
-    }
+        this.getCommand("pvpopt").setExecutor(new PVPOptCommand(this));
+        this.getCommand("something").setExecutor(new SomethingCommand());
+        this.getCommand("tp").setExecutor(new TPCommand());
+        this.getCommand("tpa").setExecutor(new TPACommand(this));
+        this.getCommand("tpaccept").setExecutor(new TPAcceptCommand(this));
+        this.getCommand("tpdeny").setExecutor(new TPDenyCommand());
 
-    public void addRecipes() {
-        addTpOrb();
-    }
-
-    public void addTpOrb() {
-        ItemStack orb = new ItemStack(Material.EYE_OF_ENDER, 2);
-        ItemMeta im = orb.getItemMeta();
-        im.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.ITALIC+"TP Orb");
+        final ItemStack orb = new ItemStack(Material.EYE_OF_ENDER, 2);
+        final ItemMeta im = orb.getItemMeta();
+        im.setDisplayName(ChatColor.LIGHT_PURPLE + "" + ChatColor.ITALIC + "TP Orb");
         orb.setItemMeta(im);
 
-        ShapedRecipe recipe = new ShapedRecipe(orb);
-            recipe.shape("ABA", "CDC", "ABA")
-            .setIngredient('A', Material.BLAZE_ROD)
-            .setIngredient('B', Material.DIAMOND)
-            .setIngredient('C', Material.MAGMA_CREAM)
-            .setIngredient('D', Material.EYE_OF_ENDER);
+        final ShapedRecipe recipe = new ShapedRecipe(orb);
+        recipe.shape("ABA", "CDC", "ABA").setIngredient('A', Material.BLAZE_ROD).setIngredient('B', Material.DIAMOND).setIngredient('C', Material.MAGMA_CREAM).setIngredient('D', Material.EYE_OF_ENDER);
 
-        getServer().addRecipe(recipe);
-    }
-
-    public PlayersConfig getPc() {
-        return pc;
+        this.getServer().addRecipe(recipe);
     }
 
 }
