@@ -20,19 +20,19 @@ public class TPACommand implements CommandExecutor {
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (sender instanceof Player) {
-            final Player p = (Player) sender;
+        if(sender instanceof Player) {
+            Player p = (Player) sender;
             switch (args.length) {
                 case 1:
-                    final Player target = Bukkit.getPlayer(args[0]);
+                    Player target = Bukkit.getPlayer(args[0]);
                     if (target == null) {
                         p.sendMessage(this.RED + "That player is not online!");
                         return true;
                     }
-                    this.plugin.getTpaRef().put(target.getName(), p.getName());
-                    this.plugin.getTpaTimes().put(target.getName(), System.currentTimeMillis());
+                    this.plugin.tpaRef.put(target.getName(), p.getName());
+                    this.plugin.tpaTimes.put(target.getName(), System.currentTimeMillis());
                     p.sendMessage(this.GREEN + "Request sent!");
-                    final int timeout = /*plugin.getConfig().getInt("tp-timeout", 30)*/30;
+                    int timeout = /*plugin.getConfig().getInt("tp-timeout", 30)*/30;
                     target.sendMessage(ChatColor.GOLD + p.getName() + ChatColor.BLUE + " has sent a tp request to tp to you. You have " + timeout + " seconds until this request times out.");
                     return true;
 

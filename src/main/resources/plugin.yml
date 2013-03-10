@@ -21,6 +21,10 @@ commands:
     description: Declines tp invite.
   pvpopt:
     description: Opt in or out of pvp.
+  home:
+    description: TPs you to your home
+  sethome:
+    description: Sets your home
 
 permissions:
   server.tpaccept:
