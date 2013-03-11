@@ -41,8 +41,7 @@ public class VoteCommand implements CommandExecutor {
 	public void getVotes(CommandSender cs, int page) {
 		try {
 			SortedMap<Integer, VoteInfo> map = new TreeMap<Integer, VoteInfo>(Collections.reverseOrder());
-			PreparedStatement ps = c.prepareStatement("SELECT * FROM `Waiting` WHERE `Activated` = 1 AND `Approved` = 0");
-			ResultSet rs = ps.executeQuery();
+			ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM `Waiting` WHERE `Activated` = 1 AND `Approved` = 0");
 			while(rs.next()) {
 				String name = rs.getString("Name");
 				int posts = rs.getInt("Posts");
