@@ -25,6 +25,8 @@ commands:
     description: TPs you to your home
   sethome:
     description: Sets your home
+  vote:
+    description: Vote
 
 permissions:
   server.tpaccept:

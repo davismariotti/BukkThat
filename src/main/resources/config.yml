@@ -1,1 +1,3 @@
 tp-timeout: 30
+sql-user: user
+sql-pass: pass

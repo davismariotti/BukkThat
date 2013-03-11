@@ -16,6 +16,7 @@ import team.bukkthat.commands.TPACommand;
 import team.bukkthat.commands.TPAcceptCommand;
 import team.bukkthat.commands.TPCommand;
 import team.bukkthat.commands.TPDenyCommand;
+import team.bukkthat.commands.VoteCommand;
 import team.bukkthat.listeners.BlockListener;
 import team.bukkthat.listeners.OtherListener;
 import team.bukkthat.listeners.PlayerListener;
@@ -49,13 +50,14 @@ public class Main extends JavaPlugin {
         this.getCommand("tpdeny").setExecutor(new TPDenyCommand(this));
         this.getCommand("home").setExecutor(new HomeCommand(this));
         this.getCommand("sethome").setExecutor(new HomeCommand(this));
+        this.getCommand("vote").setExecutor(new VoteCommand(this));
 
-        final ItemStack orb = new ItemStack(Material.EYE_OF_ENDER, 2);
-        final ItemMeta im = orb.getItemMeta();
+        ItemStack orb = new ItemStack(Material.EYE_OF_ENDER, 2);
+        ItemMeta im = orb.getItemMeta();
         im.setDisplayName(ChatColor.LIGHT_PURPLE + "" + ChatColor.ITALIC + "TP Orb");
         orb.setItemMeta(im);
 
-        final ShapedRecipe recipe = new ShapedRecipe(orb);
+        ShapedRecipe recipe = new ShapedRecipe(orb);
         recipe.shape("ABA", "CDC", "ABA")
         .setIngredient('A', Material.BLAZE_ROD)
         .setIngredient('B', Material.DIAMOND)
@@ -63,6 +65,7 @@ public class Main extends JavaPlugin {
         .setIngredient('D', Material.EYE_OF_ENDER);
 
         this.getServer().addRecipe(recipe);
+        this.saveDefaultConfig();
     }
 
 }
