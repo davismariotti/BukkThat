@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.kitteh.tag;
 
 import team.bukkthat.Main;
 
@@ -27,11 +28,14 @@ public class PVPOptCommand implements CommandExecutor {
                         this.plugin.getPlayersConfig().getPlayers().set(player.getName() + ".pvp-opt", true);
                         this.plugin.getPlayersConfig().savePlayers();
                         player.sendMessage(this.GREEN + "You now can pvp or be pvp'ed");
+                        player.setTag(ChatColor.RED + plugin.pc.getPlayers().getString(String key, String def));
                         return true;
                     } else if (args[0].equalsIgnoreCase("out")) {
                         this.plugin.getPlayersConfig().getPlayers().set(player.getName() + ".pvp-opt", false);
                         this.plugin.getPlayersConfig().savePlayers();
                         player.sendMessage(this.GREEN + "You no longer can pvp or be pvp'ed");
+                        player.setTag(ChatColor.GREEN + plugin.pc.getPlayers().getString(String key, String def));  
+
                         return true;
                     } else {
                         this.usage(player);
